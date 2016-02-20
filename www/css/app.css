@@ -1,0 +1,25 @@
+#logo{
+	display:block;
+	margin:auto;
+	width:80px;
+}
+
+#listvideos li{
+	cursor:pointer;
+}
+
+#listvideos img{
+	margin:8px;
+	padding:3px;
+	border:1px solid #ccc;
+}
+
+#listvideos h3{
+	margin-left: 10px;
+}
+
+#showvideos{
+	width: 100%;
+	margin: 15px 0 15px 0;
+}
+
