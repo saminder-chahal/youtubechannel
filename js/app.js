@@ -24,6 +24,21 @@ function OnDeviceReady(){
 		setChannel(channel);
 		getPlaylist(channel);
 	});
+
+	$('#saveOptions').click(function(){
+		saveOptions();
+	});
+
+	$('#clearChannel').click(function(){
+		clearChannel();
+    })
+
+    $(document).on('pageinit', '#options', function(){
+         var channel = localStorage.getItem('channel');
+         var maxResults = localStorage.getItem('maxresults');
+         $('#channelNameOptions').attr('value', channel);
+         $('#maxResultsOptions').attr('value', maxResults);
+    });
 }
 
 function getPlaylist(channel){
@@ -40,7 +55,7 @@ function getPlaylist(channel){
             	$.each(data.items, function(i, item){
             		console.log(item); 
             		playlistId = item.contentDetails.relatedPlaylists.uploads;
-            		getVideos(playlistId, 10);
+            		getVideos(playlistId, localStorage.getItem('maxresults'));
 
             	});
             }
@@ -77,6 +92,29 @@ function showVideo(id){
 
 function setChannel(channel){
     localStorage.setItem('channel', channel);
-    consile.log('Channel Set: '+channel);
+    console.log('Channel Set: '+channel);
+}
 
+function setMaxResults(maxResults){
+    localStorage.setItem('maxresults', maxResults);
+    console.log('Max Results Changed: '+maxResults);
+}
+
+function saveOptions(){
+	var channel = $('#channelNameOptions').val();
+	setChannel(channel);
+	var maxResults = $('#maxResultsOptions').val();
+	setMaxResults(maxResults);
+	$.mobile.changePage('#main');
+	getPlaylist(channel);
+}
+
+function clearChannel(){
+	localStorage.removeItem('channel');
+	$.mobile.changePage("#main");
+	// Clear list
+	$('#listvideos').html('');
+    //Show Popup
+    $('#popupDialog').popup("open");
+     
 }

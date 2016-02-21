@@ -1,3 +1,9 @@
+.ui-page,ui-content{background:#737373 !important;}
+#main{
+	width:100%;
+	height:auto;
+	
+}
 #logo{
 	display:block;
 	margin:auto;
@@ -6,6 +12,8 @@
 
 #listvideos li{
 	cursor:pointer;
+	background-color: #737373;
+
 }
 
 #listvideos img{
@@ -16,6 +24,8 @@
 
 #listvideos h3{
 	margin-left: 10px;
+	font-family: Verdana;
+	color: white;
 }
 
 #showvideos{
