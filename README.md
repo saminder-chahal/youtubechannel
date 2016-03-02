@@ -1,2 +1,2 @@
 # YoutubeChannel
-Android/IOS app developed to watch any youtube channel video using phonegap (HTML,CSS, Javascript, jquery etc)
+Android/IOS app developed to watch any youtube channel video using YouTube APIs and Phonegap (HTML,CSS, Javascript, jquery etc) framework.
